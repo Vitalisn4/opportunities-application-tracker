@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - Opportunities Application Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Opportunities Tracker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="job-listings.html" class="active"><i class="fas fa-briefcase"></i> Job Listings</a></li>
+                    <li><a href="scholarships.html"><i class="fas fa-graduation-cap"></i> Scholarships</a></li>
+                    <li><a href="courses.html"><i class="fas fa-laptop-code"></i> Free Courses</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="login-btn" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button id="signup-btn" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h2><i class="fas fa-briefcase"></i> Job Listings</h2>
+                <p>Track and manage your job applications in one place.</p>
+            </section>
+
+            <!-- Update the job-controls section to include sorting options -->
+            <section class="job-controls">
+                <button id="add-job-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Job</button>
+                <div class="search-filter">
+                    <input type="text" id="job-search" placeholder="Search jobs...">
+                    <select id="job-status-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="applied">Applied</option>
+                        <option value="interview">Interview Scheduled</option>
+                        <option value="offer">Offer Received</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <select id="job-sort">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="company">Company (A-Z)</option>
+                        <option value="title">Job Title (A-Z)</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Update the job-list section to include a loading indicator -->
+            <section class="job-list">
+                <div id="job-loading" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i> Loading jobs...
+                </div>
+                <!-- Job cards will be dynamically inserted here -->
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Opportunities Application Tracker. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+
+        <!-- Update the add-job-modal to include more fields and better organization -->
+        <div id="add-job-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Job</h2>
+                <form id="add-job-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="job-title">Job Title*</label>
+                            <input type="text" id="job-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-company">Company*</label>
+                            <input type="text" id="job-company" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="job-location">Location</label>
+                            <input type="text" id="job-location">
+                        </div>
+                        <div class="form-group">
+                            <label for="job-date-applied">Date Applied*</label>
+                            <input type="date" id="job-date-applied" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="job-status">Status*</label>
+                            <select id="job-status" required>
+                                <option value="applied">Applied</option>
+                                <option value="interview">Interview Scheduled</option>
+                                <option value="offer">Offer Received</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-url">Job URL</label>
+                            <input type="url" id="job-url" placeholder="https://example.com/job">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-description">Description</label>
+                        <textarea id="job-description" rows="3" placeholder="Brief description of the job..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-notes">Notes</label>
+                        <textarea id="job-notes" rows="3" placeholder="Your notes about the application..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Job</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+

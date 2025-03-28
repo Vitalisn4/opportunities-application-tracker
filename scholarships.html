@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships - Opportunities Application Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Opportunities Tracker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="job-listings.html"><i class="fas fa-briefcase"></i> Job Listings</a></li>
+                    <li><a href="scholarships.html" class="active"><i class="fas fa-graduation-cap"></i> Scholarships</a></li>
+                    <li><a href="courses.html"><i class="fas fa-laptop-code"></i> Free Courses</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="login-btn" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button id="signup-btn" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h2><i class="fas fa-graduation-cap"></i> Scholarships</h2>
+                <p>Track and manage scholarship opportunities.</p>
+            </section>
+
+            <section class="scholarship-controls">
+                <button id="add-scholarship-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Scholarship</button>
+                <div class="search-filter">
+                    <input type="text" id="scholarship-search" placeholder="Search scholarships...">
+                    <select id="scholarship-status-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="not-applied">Not Applied</option>
+                        <option value="applied">Applied</option>
+                        <option value="awarded">Awarded</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <select id="scholarship-sort">
+                        <option value="deadline-asc">Deadline (Soonest First)</option>
+                        <option value="deadline-desc">Deadline (Latest First)</option>
+                        <option value="amount-desc">Amount (Highest First)</option>
+                        <option value="amount-asc">Amount (Lowest First)</option>
+                        <option value="name">Name (A-Z)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="scholarship-list">
+                <div id="scholarship-loading" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i> Loading scholarships...
+                </div>
+                <!-- Scholarship cards will be dynamically inserted here -->
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Opportunities Application Tracker. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+
+        <!-- Add Scholarship Modal -->
+        <div id="add-scholarship-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Scholarship</h2>
+                <form id="add-scholarship-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarship-name">Scholarship Name*</label>
+                            <input type="text" id="scholarship-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarship-organization">Organization*</label>
+                            <input type="text" id="scholarship-organization" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarship-amount">Amount*</label>
+                            <input type="text" id="scholarship-amount" placeholder="e.g. $5,000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarship-deadline">Deadline*</label>
+                            <input type="date" id="scholarship-deadline" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarship-status">Status*</label>
+                            <select id="scholarship-status" required>
+                                <option value="not-applied">Not Applied</option>
+                                <option value="applied">Applied</option>
+                                <option value="awarded">Awarded</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarship-url">URL</label>
+                            <input type="url" id="scholarship-url" placeholder="https://example.com/scholarship">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="scholarship-eligibility">Eligibility Criteria</label>
+                        <textarea id="scholarship-eligibility" rows="2" placeholder="Who is eligible for this scholarship?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="scholarship-requirements">Requirements</label>
+                        <textarea id="scholarship-requirements" rows="2" placeholder="What documents or qualifications are required?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="scholarship-notes">Notes</label>
+                        <textarea id="scholarship-notes" rows="2" placeholder="Your personal notes about this scholarship..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Scholarship</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
