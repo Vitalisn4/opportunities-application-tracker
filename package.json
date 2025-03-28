@@ -1,0 +1,13 @@
+{
+  "name": "opportunities-application-tracker",
+  "version": "1.0.0",
+  "description": "A tool to track job applications, scholarship opportunities, and skill development",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["job-tracker", "scholarship-tracker", "course-tracker", "opportunities"],
+  "author": "",
+  "license": "MIT"
+}
+

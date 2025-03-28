@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Courses - Opportunities Application Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Opportunities Tracker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="job-listings.html"><i class="fas fa-briefcase"></i> Job Listings</a></li>
+                    <li><a href="scholarships.html"><i class="fas fa-graduation-cap"></i> Scholarships</a></li>
+                    <li><a href="courses.html" class="active"><i class="fas fa-laptop-code"></i> Free Courses</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="login-btn" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button id="signup-btn" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h2><i class="fas fa-laptop-code"></i> Free Courses</h2>
+                <p>Track and manage free online courses to develop your skills.</p>
+            </section>
+
+            <section class="course-controls">
+                <button id="add-course-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Course</button>
+                <div class="search-filter">
+                    <input type="text" id="course-search" placeholder="Search courses...">
+                    <select id="course-status-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="not-started">Not Started</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <select id="course-sort">
+                        <option value="name">Name (A-Z)</option>
+                        <option value="platform">Platform (A-Z)</option>
+                        <option value="duration-asc">Duration (Shortest First)</option>
+                        <option value="duration-desc">Duration (Longest First)</option>
+                        <option value="progress-asc">Progress (Lowest First)</option>
+                        <option value="progress-desc">Progress (Highest First)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="course-list">
+                <div id="course-loading" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i> Loading courses...
+                </div>
+                <!-- Course cards will be dynamically inserted here -->
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Opportunities Application Tracker. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+
+        <!-- Add Course Modal -->
+        <div id="add-course-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Course</h2>
+                <form id="add-course-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="course-title">Course Title*</label>
+                            <input type="text" id="course-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-platform">Platform*</label>
+                            <input type="text" id="course-platform" placeholder="e.g. Coursera, Udemy" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="course-instructor">Instructor</label>
+                            <input type="text" id="course-instructor" placeholder="Course instructor name">
+                        </div>
+                        <div class="form-group">
+                            <label for="course-duration">Duration (hours)</label>
+                            <input type="number" id="course-duration" min="0" step="0.5" placeholder="e.g. 12.5">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="course-status">Status*</label>
+                            <select id="course-status" required>
+                                <option value="not-started">Not Started</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-progress">Progress (%)*</label>
+                            <input type="number" id="course-progress" min="0" max="100" value="0" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-url">Course URL</label>
+                        <input type="url" id="course-url" placeholder="https://example.com/course">
+                    </div>
+                    <div class="form-group">
+                        <label for="course-category">Category</label>
+                        <select id="course-category">
+                            <option value="">Select a category</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="mobile-development">Mobile Development</option>
+                            <option value="programming">Programming</option>
+                            <option value="design">Design</option>
+                            <option value="business">Business</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-description">Description</label>
+                        <textarea id="course-description" rows="2" placeholder="Brief description of the course content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-notes">Notes</label>
+                        <textarea id="course-notes" rows="2" placeholder="Your personal notes about this course"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
